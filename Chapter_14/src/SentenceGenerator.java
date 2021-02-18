@@ -42,8 +42,10 @@ public class SentenceGenerator {
         StringBuilder builder = new StringBuilder();
         String space = " ";
         SecureRandom randomNumber = new SecureRandom();
-        int wordIndex = randomNumber.nextInt(5);
+//        int wordIndex = randomNumber.nextInt(5);
 
+        int wordIndex;
+        wordIndex = randomNumber.nextInt(5);
         String article = articles[wordIndex];
         char firstLetter = article.charAt(0);
         firstLetter = Character.toUpperCase(firstLetter);
@@ -52,22 +54,27 @@ public class SentenceGenerator {
         builder.append(article);
         builder.append(space);
 
+        wordIndex = randomNumber.nextInt(5);
         String noun = nouns[wordIndex];
         builder.append(noun);
         builder.append(space);
 
+        wordIndex = randomNumber.nextInt(5);
         String verb = verbs [wordIndex];
         builder.append(verb);
         builder.append(space);
 
+        wordIndex = randomNumber.nextInt(5);
         String preposition = prepositions[wordIndex];
         builder.append(preposition);
         builder.append(space);
 
+        wordIndex = randomNumber.nextInt(5);
         article = articles[wordIndex];
         builder.append(article);
         builder.append(space);
 
+        wordIndex = randomNumber.nextInt(5);
         noun = nouns[wordIndex];
         builder.append(noun);
         builder.append(".");
