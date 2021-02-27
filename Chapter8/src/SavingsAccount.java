@@ -15,4 +15,35 @@ public class SavingsAccount {
     private static double annualInterestRate;
     private double savingsBalance;
 
+    public static double getAnnualInterestRate() {
+        return annualInterestRate;
+    }
+
+    public static void setAnnualInterestRate(double annualInterestRate) {
+        SavingsAccount.annualInterestRate = annualInterestRate;
+    }
+
+    public void setBalance(double savingsBalance) {
+        if(annualInterestRate < 0){
+        throw new IllegalArgumentException("Your interest rate can't be negative");}
+        this.savingsBalance = savingsBalance;
+
+    }
+
+    public double getSavingsBalance(){
+        return Double.parseDouble(String.format("%.2f", savingsBalance));
+    }
+
+    public double calculateMonthlyInterest() {
+        double monthlyInterest =  (savingsBalance * SavingsAccount.annualInterestRate/ 100 ) / 12;
+        monthlyInterest = Double.parseDouble(String.format("%.2f", monthlyInterest));
+        return monthlyInterest;
+    }
+
+    public double updateSavingsBalance() {
+        savingsBalance = getSavingsBalance() + (getSavingsBalance() * SavingsAccount.annualInterestRate /100 ) / 12;
+        savingsBalance = Double.parseDouble(String.format("%.2f", savingsBalance));
+
+        return savingsBalance;
+    }
 }

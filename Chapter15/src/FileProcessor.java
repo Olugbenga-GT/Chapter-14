@@ -1,13 +1,31 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-public class FindAndDirectFileDirectory {
+public class FileProcessor {
+
+    public static boolean isValidPath(String filePath) throws FileNotFoundException {
+        boolean result = true;
+        String empty = "";
+        if (filePath == null || filePath.equalsIgnoreCase(empty)) {
+            throw new FileNotFoundException("File not found, please provde a filepath");
+        }
+        Path thePath = Paths.get(filePath);
+        if (!Files.exists(thePath)) {
+            throw new FileNotFoundException("Cannot find file path");
+        }
+        return result;
+    }
 
 
-
-    public void printFileDetails(String filePath){
-
+    public static String getFileName(String path) throws FileNotFoundException {
+        String name = "";
+        if(isValidPath(path)){
+            Path filePath  = Paths.get(path);
+            name =  filePath.getFileName().toString();
+        }
+        return name;
     }
 }

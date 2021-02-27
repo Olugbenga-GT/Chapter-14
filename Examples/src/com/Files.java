@@ -1,2 +1,4 @@
-package com;public class Files {
+package com;
+
+public class Files {
 }

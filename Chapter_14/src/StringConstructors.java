@@ -17,8 +17,6 @@ public class StringConstructors {
         System.out.printf("%n Th reversed of decomposition is : %n ");
         for(int count = s3.length() - 1; count >= 0; count --){
             System.out.printf("%c  ", s3.charAt(count));
-
-
         }
     }
 }
